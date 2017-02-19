@@ -5,6 +5,7 @@ const router = express.Router();
 
 var mongoose   = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/movies');
+
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Mongo connection error'));
 db.once('open', function() {
@@ -89,8 +90,6 @@ router.route('/movies/:movie_id')
       res.json({ message: 'Movie Deleted' });
   });
 });
-
-
 
 //Redirect any other routes to index.  The route denoted with * must come AFTER all other API routes have been defined.
 router.get('*', (req, res) => {
