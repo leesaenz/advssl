@@ -1,5 +1,5 @@
 //Get dependencies
-var Movie = require('../../models/movie');
+var Movie = require('../../src/app/models/movie');
 const express = require('express');
 const router = express.Router();
 

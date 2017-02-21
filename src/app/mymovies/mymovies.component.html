@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="card">
+      <div class="card-block">
+        <h2>Add a Movie</h2>
+        <input type="text" class="movie-title form-control" name="title" [(ngModel)]="movie_title" placeholder="Title">
+        <input type="text" class="movie-cover-input form-control" name="cover" [(ngModel)]="movie_cover" placeholder="Cover Path, images/covers/name.jpg">
+        <input type="text" class="movie-director form-control" name="director" [(ngModel)]="movie_director" placeholder="Director">
+        <input type="text" class="movie-year form-control" name="year" [(ngModel)]="movie_year" placeholder="Year Released">
+        <input type="text" class="movie-genre form-control" name="genre" [(ngModel)]="movie_genre" placeholder="Genre">
+        <input type="text" class="movie-imdb form-control" name="imdb" [(ngModel)]="movie_imdb" placeholder="Imdb Rating">
+        <input type="text" class="movie-tomatoes form-control" name="tomatoes" [(ngModel)]="movie_tomatoes" placeholder="Rotten Tomato Rating">
+        <textarea class="movie-description form-control" name="description" [(ngModel)]="movie_description" placholder="Description..."></textarea>
+        <a class="btn btn-block btn-success" (click)="createMovie(movie_title,movie_genre,movie_cover,movie_director,movie_year,movie_description,movie_imdb,movie_tomatoes)">Add Movie <span class="glyphicon glyphicon-plus-sign"></span></a>
+       </div>
+    </div>
+    <div class="ngdiv" *ngFor="let movie of movies">
+      <div class="movie card">
+        <a class="btn btn-danger remove" (click)="deleteMovie(movie)"><span class="glyphicon glyphicon glyphicon-remove"></span></a>
+        <div class="movie-cover card-img-top" [ngStyle]="{'background-image': 'url(' + movie.cover + ')'}"></div>
+        <p class="movie-description card-block">
+          <input type="text" class="movie-title-input form-control" value="{{ movie.title }}">
+          <input type="text" name="movie-cover-input" class="movie-cover-input form-control" value="{{ movie.cover }}">
+          <input type="text" name="movie-director" class="movie-director form-control" value="{{ movie.director }}">
+          <input type="text" name="movie-year" class="movie-year form-control" value="{{ movie.year }}">
+          <input type="text" name="movie-genre" class="movie-genre form-control" value="{{ movie.genre }}">
+          <input type="text" name="movie-imdb" class="movie-imdb form-control" value="{{ movie.imdb }}">
+          <input type="text" name="movie-tomatoes" class="movie-tomatoes form-control" value="{{ movie.tomatoes }}">
+          <textarea name="movie-description" class="movie-description form-control">{{ movie.description }}</textarea>
+          <a class="btn btn-info" (click)="updateMovie(movie)">Save / Edit <span class="glyphicon glyphicon-pencil"></span></a>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+body {
+  height:100%;
+  color:#333;
+  font-size:16px;
+}
+
+.header {
+  background-color:#333;
+  padding:15px 0;
+}
+
+h1 {
+  color:#fff;
+  font-size:1.4em;
+  margin:0;
+}
+
+h2 {
+  font-size:1.2em;
+  margin-bottom:25px;
+}
+
+#main {
+  padding: 20px 0;
+}
+
+.card {
+  margin-right:20px;
+  border-radius:0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  min-width:300px;
+}
+
+.card:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card a.btn {
+  color:#fff;
+  font-size: 0.8em;
+  width:100%;
+}
+
+.card a.btn:hover {
+  color:#fff;
+}
+
+.btn-success {
+  margin-top:15px;
+}
+
+.movie .btn-success {
+  margin-top:0;
+}
+
+.edit-block {
+  padding-top:0;
+  margin-top:0;
+}
+
+input {
+  margin:5px 0;
+}
+
+a .glyphicon {
+  color: #fff;
+  font-size: 1em;
+  top: 2px;
+}
+
+.form-control {
+  font-size:0.9em;
+}
+
+.movie .form-control {
+    border: 1px solid transparent;
+    box-shadow: none;
+}
+
+.movie .form-control:hover,
+.movie .form-control:focus {
+  border:1px solid #ccc;
+}
+
+textarea {
+  min-height:100px;
+}
+
+.movie-title-input.form-control {
+  font-size:1.3em;
+}
+
+.movie-cover {
+  height:200px;
+  background-size:cover;
+  background-position:top center;
+}
+
+.card .btn.remove {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right:0;
+}
+
+.card .btn.remove .glyphicon {
+  left: -5px;
+}
