@@ -73,24 +73,26 @@ router.route('/movies/:movie_id')
 
 //PUT / UPDATE
 .put(function(req,res) {
-  Movie.findById(req.params.movie_id, function(err, movie) {
-    if (err)
+
+  Movie.findOne({_id: data.movie}, function(err, movie) {
+
+    if (err) {
+
       res.send(err);
 
-    movie.title = req.body.title;
-    movie.director = req.body.director;
-    movie.year = req.body.year;
-    movie.cover = req.body.cover;
-    movie.description = req.body.description;
-    movie.genre = req.body.genre;
-    movie.imdb = req.body.imdb;
-    movie.tomatoes = req.body.tomatoes;
+    } else if(movie) {
 
-    movie.save(function(err) {
-      if(err)
-        res.send(err);
-      res.json({ message: 'Movie Updated!'});
-    });
+      Movie.update({_id: data.movie},{
+        movie.title : req.body.title;
+        movie.director : req.body.director;
+        movie.year : req.body.year;
+        movie.cover : req.body.cover;
+        movie.description : req.body.description;
+        movie.genre : req.body.genre;
+        movie.imdb : req.body.imdb;
+        movie.tomatoes : req.body.tomatoes;
+      });
+    }
   });
 })
 
@@ -98,7 +100,7 @@ router.route('/movies/:movie_id')
 .delete(function(req, res) {
   Movie.remove({
       _id: req.params.movie_id
-  }, function(err, bear) {
+  }, function(err, movie) {
       if (err)
           res.send(err);
 
