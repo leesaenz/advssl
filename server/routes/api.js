@@ -3,8 +3,13 @@ var Movie = require('../../src/app/models/movie');
 const express = require('express');
 const router = express.Router();
 
+const axios = require('axios');
+var api_key = '177ba2703d1a06d4a9c1666172f35fb5';
+const upcomingAPI = 'https://api.themoviedb.org/3/movie/upcoming?api_key=' + api_key;
+
 var mongoose   = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/movies');
+
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'Mongo connection error'));
@@ -19,6 +24,16 @@ router.use(function(req, res, next) {
 
 router.get('/', function(req, res) {
   res.json({ message: `Movie API be here.` });
+});
+
+router.get('/upcoming', (req, res) => {
+  axios.get(upcomingAPI)
+    .then(upcoming => {
+      res.status(200).json(upcoming.data);
+    })
+    .catch(error => {
+      res.status(500).send(error)
+    });
 });
 
 router.route('/movies')

@@ -5,8 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+
 import { MymoviesComponent } from './mymovies/mymovies.component';
 import { MymoviesService } from './mymovies.service';
+
+import { UpcomingComponent } from './upcoming/upcoming.component';
+import { UpcomingService } from './upcoming.service';
 
 const appRoutes: Routes = [
   {
@@ -17,6 +21,10 @@ const appRoutes: Routes = [
   {
     path: 'mymovies',
     component: MymoviesComponent
+  },
+  {
+    path: 'upcoming',
+    component: UpcomingComponent
   }
 ];
 
@@ -29,9 +37,13 @@ const appRoutes: Routes = [
   ],
   declarations: [
     AppComponent,
-    MymoviesComponent
+    MymoviesComponent,
+    UpcomingComponent
   ],
-  providers: [MymoviesService],
+  providers: [
+    MymoviesService,
+    UpcomingService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
